@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
+#include "Date.h"
+#include "CompteCourant.h"
+#include "Client.h"
+#include <list>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    CompteCourant c1;
+    CompteCourant c2;
+    Client* Adam = new Client("Adam", "Dadda");
+
+    c1.assignerProprietaire(Adam);
+    c1.display();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
