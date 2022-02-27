@@ -10,12 +10,12 @@ private:
     CompteCourant* source;
 public:
     CompteEpargne();
+    void crediter(MAD) override;
+    void debiter(MAD) override;
     void assignerSource(CompteCourant*);
     void modifierTauxInteret(const double);
     void display(void) const;
-    void crediter(MAD) override;
-    void debiter(MAD) override;
+    void transferer(Compte*, MAD) override;
     void calculInteret(void);
-    ~CompteEpargne();
 };
 

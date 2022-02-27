@@ -1,6 +1,7 @@
 #include "CompteEpargne.h"
 #include "MAD.h"
 #include "Operation.h"
+#include "Compte.h"
 #include <iostream>
 using namespace std;
 
@@ -35,19 +36,27 @@ void CompteEpargne::display(void) const
 
 void CompteEpargne::crediter(MAD somme)
 {
+	this->solde.crediter(somme);
+	this->ajouterOperation(Operation::Operation(somme, this->numCompte, "Credit"));
 }
 
 void CompteEpargne::debiter(MAD somme)
 {
 	if (somme <= this->solde * 0.5) {
-		this->ajouterOperation(Operation::Operation(this->solde * 0.5, this->numCompte, "Debit"));
+		this->ajouterOperation(Operation::Operation(somme, this->numCompte, "Debit"));
 
-		this->source->crediter(this->solde * 0.5);
-
-		this->solde.debiter(this->solde * 0.5);
+		this->solde.debiter(somme);
 	}
 	else
 		cout << "ERREUR: La somme a retirer doit etre inferieure à 50% du solde." << endl;
+}
+
+void CompteEpargne::transferer(Compte* c, MAD somme)
+{
+	if (somme <= this->solde * 0.5) {
+		this->debiter(somme);
+		c->crediter(somme);
+	}
 }
 
 void CompteEpargne::calculInteret(void)
@@ -60,5 +69,4 @@ void CompteEpargne::calculInteret(void)
 
 	this->ajouterOperation(calcul);
 	this->crediter(montant);
-
 }

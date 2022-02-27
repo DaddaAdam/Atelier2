@@ -9,9 +9,9 @@ private:
 public:
     CompteCourant();
     CompteCourant(MAD, MAD);
-    void display(void) const override;
     void crediter(MAD) override;
     void debiter(MAD) override;
+    void display(void) const override;
     void transferer(Compte *, MAD) override;
 };
 

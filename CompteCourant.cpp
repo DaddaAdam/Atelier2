@@ -18,6 +18,7 @@ CompteCourant::CompteCourant(MAD soldeInit, MAD decouvert)
 	this->decouvert = decouvert;
 }
 
+//Affichage
 void CompteCourant::display(void) const
 {
 	cout << "Numero: " << this->numCompte << endl;
@@ -28,11 +29,13 @@ void CompteCourant::display(void) const
 void CompteCourant::crediter(MAD somme)
 {
 	this->solde.crediter(somme);
+	this->ajouterOperation(Operation::Operation(somme, this->numCompte, "Credit"));
 }
 
 void CompteCourant::debiter(MAD somme)
 {
 	this->solde.debiter(somme);
+	this->ajouterOperation(Operation::Operation(somme, this->numCompte, "Debit"));
 }
 
 void CompteCourant::transferer(Compte* com, MAD somme)
@@ -40,9 +43,6 @@ void CompteCourant::transferer(Compte* com, MAD somme)
 	if (this->solde.isDebitable(somme, this->decouvert)) {
 		com->crediter(somme);
 		this->debiter(somme);
-
-		this->ajouterOperation(Operation::Operation(somme, this->numCompte, "Debit"));
-		com->ajouterOperation(Operation::Operation(somme, this->numCompte, "Credit"));
 	}
 	else {
 		cout << "ERREUR: On ne peut pas débiter "; somme.display();

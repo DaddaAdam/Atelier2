@@ -17,14 +17,16 @@ int main()
 
     c1.assignerProprietaire(Adam);
     c2.assignerProprietaire(Adam);
-    c1.crediter(MAD::MAD(5000));
     c1.transferer(&c2, MAD::MAD(2000));
     c1.display();
     c1.consulter();
     std::cout << "*****************************************" << std::endl;
     c2.transferer(&c1, MAD::MAD(6000));
     std::cout << "*****************************************" << std::endl;
-
+    CompteEpargne c3;
+    c3.assignerProprietaire(Adam);
+    c3.assignerSource(&c2);
+    c3.consulter();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
