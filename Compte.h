@@ -25,7 +25,7 @@ public:
 	virtual void crediter(MAD) = 0;
 	virtual void debiter(MAD) = 0;
 	virtual void transferer(Compte *, MAD) = 0;
-	virtual void consulter(void) const = 0;
-	virtual void ajouterOperation(const Operation) = 0;
+	void consulter(void) const;
+	void ajouterOperation(const Operation);
 };
 

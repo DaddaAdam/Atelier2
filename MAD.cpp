@@ -36,7 +36,19 @@ void MAD::display(void) const
 	std::cout << this->montant << " DH" << std::endl;
 }
 
+MAD MAD::operator*(const double s)
+{
+	MAD result(this->montant * s);
+
+	return result;
+}
+
 bool MAD::isDebitable(const MAD somme, const MAD decouvert) const
 {
 	return this->montant - somme.montant >= decouvert.montant;
+}
+
+bool MAD::operator<=(const MAD somme) const
+{
+	return this->montant <= somme.montant;
 }

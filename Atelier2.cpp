@@ -5,16 +5,26 @@
 #include "Date.h"
 #include "CompteCourant.h"
 #include "Client.h"
+#include "MAD.h"
+#include "CompteEpargne.h"
 #include <list>
 
 int main()
 {
     CompteCourant c1;
-    CompteCourant c2;
+    CompteCourant c2(MAD::MAD(1000), MAD::MAD(800));
     Client* Adam = new Client("Adam", "Dadda");
 
     c1.assignerProprietaire(Adam);
+    c2.assignerProprietaire(Adam);
+    c1.crediter(MAD::MAD(5000));
+    c1.transferer(&c2, MAD::MAD(2000));
     c1.display();
+    c1.consulter();
+    std::cout << "*****************************************" << std::endl;
+    c2.transferer(&c1, MAD::MAD(6000));
+    std::cout << "*****************************************" << std::endl;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -7,11 +7,11 @@ class CompteCourant :
 private:
     MAD decouvert;
 public:
+    CompteCourant();
+    CompteCourant(MAD, MAD);
     void display(void) const override;
     void crediter(MAD) override;
     void debiter(MAD) override;
     void transferer(Compte *, MAD) override;
-    void consulter(void) const override;
-    void ajouterOperation(const Operation) override;
 };
 

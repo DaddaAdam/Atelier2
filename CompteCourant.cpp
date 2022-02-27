@@ -1,7 +1,22 @@
 #include "CompteCourant.h"
 #include "Operation.h"
+#include "MAD.h"
 #include <iostream>
 using namespace std;
+
+//Constructeur sans paramètres
+CompteCourant::CompteCourant()
+{
+	this->decouvert = MAD::MAD(800);
+	this->solde = MAD::MAD(1000);
+}
+
+//Constructeur avec paramètres
+CompteCourant::CompteCourant(MAD soldeInit, MAD decouvert)
+{
+	this->solde = soldeInit;
+	this->decouvert = decouvert;
+}
 
 void CompteCourant::display(void) const
 {
@@ -34,12 +49,4 @@ void CompteCourant::transferer(Compte* com, MAD somme)
 	}
 }
 
-void CompteCourant::consulter(void) const
-{
-	cout << "Solde: "; this->solde.display();
-}
 
-void CompteCourant::ajouterOperation(const Operation Op)
-{
-	this->listeOperations.push_back(Op);
-}
