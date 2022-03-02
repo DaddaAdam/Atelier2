@@ -144,6 +144,7 @@
     <ClCompile Include="Compte.cpp" />
     <ClCompile Include="CompteCourant.cpp" />
     <ClCompile Include="CompteEpargne.cpp" />
+    <ClCompile Include="ComptePayant.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="MAD.cpp" />
     <ClCompile Include="Operation.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Compte.h" />
     <ClInclude Include="CompteCourant.h" />
     <ClInclude Include="CompteEpargne.h" />
+    <ClInclude Include="ComptePayant.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="MAD.h" />
     <ClInclude Include="Operation.h" />

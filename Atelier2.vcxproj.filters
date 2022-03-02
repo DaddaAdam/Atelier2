@@ -39,6 +39,9 @@
     <ClCompile Include="CompteEpargne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ComptePayant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compte.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CompteEpargne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComptePayant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

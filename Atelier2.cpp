@@ -7,6 +7,7 @@
 #include "Client.h"
 #include "MAD.h"
 #include "CompteEpargne.h"
+#include "ComptePayant.h"
 #include <list>
 
 int main()
@@ -27,6 +28,13 @@ int main()
     c3.assignerProprietaire(Adam);
     c3.assignerSource(&c2);
     c3.consulter();
+
+    ComptePayant c4;
+    c4.crediter(MAD::MAD(3000));
+    c4.CompteCourant::assignerProprietaire(Adam);
+    c4.CompteCourant::display();
+    c4.CompteCourant::consulter();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
