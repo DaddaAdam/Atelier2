@@ -3,19 +3,19 @@
 #include "CompteCourant.h"
 #include "MAD.h"
 class CompteEpargne :
-    public Compte
+    public virtual Compte
 {
 private:
     double tauxInteret;
     CompteCourant* source;
 public:
     CompteEpargne();
-    void crediter(MAD) override;
-    void debiter(MAD) override;
+    virtual void crediter(MAD) override;
+    virtual void debiter(MAD) override;
     void assignerSource(CompteCourant*);
     void modifierTauxInteret(const double);
-    void display(void) const;
-    void transferer(Compte*, MAD) override;
+    virtual void display(void) const;
+    virtual void transferer(Compte*, MAD) override;
     void calculInteret(void);
 };
 

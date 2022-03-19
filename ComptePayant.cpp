@@ -3,7 +3,7 @@
 #include "MAD.h"
 #include "Compte.h"
 
-ComptePayant::ComptePayant() //: Compte::Compte(), CompteCourant::CompteCourant()
+ComptePayant::ComptePayant() 
 {
 }
 
@@ -15,16 +15,17 @@ void ComptePayant::debiter(MAD somme)
 
 void ComptePayant::crediter(MAD somme)
 {
-	this->Compte::solde.crediter(somme * 1.05);
+	this->Compte::solde.crediter(somme * 0.95);
 	this->Compte::ajouterOperation(Operation::Operation(somme, this->Compte::numCompte, "Crédit"));
 }
 
 void ComptePayant::display(void) const
 {
-	this->CompteCourant::display();
+	this->Compte::consulter();
 }
 
 void ComptePayant::transferer(Compte* com, MAD somme)
 {
-	this->CompteCourant::transferer(com, somme * 1.05);
+	this->debiter(somme);
+	com->crediter(somme);
 }

@@ -31,9 +31,9 @@ int main()
 
     ComptePayant c4;
     c4.crediter(MAD::MAD(3000));
-    c4.CompteCourant::assignerProprietaire(Adam);
-    c4.CompteCourant::display();
-    c4.CompteCourant::consulter();
+    c4.assignerProprietaire(Adam);
+    c4.display();
+    c4.consulter();
 
 }
 
